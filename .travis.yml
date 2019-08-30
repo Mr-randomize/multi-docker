@@ -17,7 +17,7 @@ after_success:
   #Log in to docker hub 
   - echo "#DOCKER_PASSWORD" | docker login -u "#DOCKER_ID" --password-stdin
   #Take images and push to docker hub
-  - docker push iviberberidock/multi-client
-  - docker push iviberberidock/multi-nginx
-  - docker push iviberberidock/multi-server
-  - docker push iviberberidock/multi-worker
+  - docker push iviberberi/multi-client
+  - docker push iviberberi/multi-nginx
+  - docker push iviberberi/multi-server
+  - docker push iviberberi/multi-worker
