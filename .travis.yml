@@ -9,15 +9,15 @@ script:
   - docker run -e CI=true iviberberi/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t iviberberi/multi-client ./client
-  - docker build -t iviberberi/multi-nginx ./nginx
-  - docker build -t iviberberi/multi-server ./server
-  - docker build -t iviberberi/multi-worker ./worker
+  - docker build -t iviberberidock/multi-client ./client
+  - docker build -t iviberberidock/multi-nginx ./nginx
+  - docker build -t iviberberidock/multi-server ./server
+  - docker build -t iviberberidock/multi-worker ./worker
 
   #Log in to docker hub 
-  - echo "#DOCKER_PASSWORD" | docker login -u "#DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take images and push to docker hub
-  - docker push iviberberi/multi-client
-  - docker push iviberberi/multi-nginx
-  - docker push iviberberi/multi-server
-  - docker push iviberberi/multi-worker
+  - docker push iviberberidock/multi-client
+  - docker push iviberberidock/multi-nginx
+  - docker push iviberberidock/multi-server
+  - docker push iviberberidock/multi-worker
