@@ -1,0 +1,16 @@
+# Use an existing docker image as a base
+FROM node:alpine
+
+#Copy to specified working dir
+WORKDIR /app
+
+#Copy build file to coatainer
+COPY ./package.json ./
+
+# Download and install dependency
+RUN npm install
+COPY ./ ./
+
+
+# Default command
+CMD [ "npm", "run", "start" ]
